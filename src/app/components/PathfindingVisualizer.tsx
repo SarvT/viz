@@ -87,7 +87,7 @@ const PathfindingVisualizer: React.FC<PathfindingVisualizerProps> = ({ initialMa
     ]
 
     let found = false
-    let visitedOrder: [number, number][] = []
+    const visitedOrder: [number, number][] = []
 
     while (queue.length > 0) {
       const [x, y] = queue.shift()!

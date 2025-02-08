@@ -17,6 +17,8 @@ export default function Home() {
   // const [maze, setMaze] = useState<boolean[][]>([]);
 
   const handleAlgorithmChange = (algorithm: string) => {
+    console.log(inputData);
+    
     setSelectedAlgorithm(algorithm);
     setInputData([]);
     // setMaze([]);
@@ -39,7 +41,7 @@ export default function Home() {
         <BinaryTreeVisualizer data={inputData} />
       )}
       {selectedAlgorithm === "sorting" && (
-        <SortingAlgorithmsVisualizer />
+        <SortingAlgorithmsVisualizer data={inputData}/>
       )}
       {selectedAlgorithm === "pathfinding" && (
         <PathfindingVisualizer initialMaze={initialMaze} />

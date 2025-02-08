@@ -1,36 +1,41 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import type React from "react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 interface InputFormProps {
-  onSubmit: (data: number[] | boolean[][]) => void
-  algorithm: string
+  onSubmit: (data: number[] | boolean[][]) => void;
+  algorithm: string;
 }
 
 const InputForm: React.FC<InputFormProps> = ({ onSubmit, algorithm }) => {
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (algorithm === "binaryTree") {
       const numbers = input
         .split(",")
         .map((num) => Number.parseInt(num.trim()))
-        .filter((num) => !isNaN(num))
-      onSubmit(numbers)
+        .filter((num) => !isNaN(num));
+      onSubmit(numbers);
     } else if (algorithm === "pathfinding") {
-      const maze = input.split("\n").map((row) => row.split("").map((cell) => cell === "1"))
-      onSubmit(maze)
+      const maze = input
+        .split("\n")
+        .map((row) => row.split("").map((cell) => cell === "1"));
+      onSubmit(maze);
     }
-    setInput("")
-  }
+    setInput("");
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full max-w-sm items-center space-x-2 mb-4">
+    <form
+      onSubmit={handleSubmit}
+      className="flex w-full max-w-sm items-center space-x-2 mb-4"
+    >
       {algorithm === "binaryTree" ? (
         <Input
           type="text"
@@ -51,8 +56,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, algorithm }) => {
       )}
       <Button type="submit">Visualize</Button>
     </form>
-  )
-}
+  );
+};
 
-export default InputForm
-
+export default InputForm;
