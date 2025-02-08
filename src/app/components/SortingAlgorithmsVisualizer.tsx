@@ -11,7 +11,7 @@ const SortingAlgorithmsVisualizer: React.FC<
   SortingAlgorithmsVisualizerProps
 > = ({ data }) => {
   const [bars, setBars] = useState<number[]>([]);
-//   const [bars, setBars] = useState<number[]>([10, 10, 10, 10, 10, 10, 10, 10]);
+  //   const [bars, setBars] = useState<number[]>([10, 10, 10, 10, 10, 10, 10, 10]);
   const [algorithm, setAlgorithm] = useState<string>("bubbleSort");
   const [highlightedBars, setHighlightedBars] = useState<number[]>([]);
   const [prevBars, setPrevBars] = useState<number[]>([]);
@@ -59,7 +59,7 @@ const SortingAlgorithmsVisualizer: React.FC<
 
   useEffect(() => {
     console.log(data);
-    
+
     setBars(data);
     setPrevBars(bars);
   }, [data]);
@@ -78,7 +78,7 @@ const SortingAlgorithmsVisualizer: React.FC<
   const bubbleSort = async (arr: number[]): Promise<void> => {
     setIsSorting(true);
     let n = arr.length;
-    let swapped = false;
+    let swapped: boolean;
 
     do {
       swapped = false;
@@ -94,8 +94,6 @@ const SortingAlgorithmsVisualizer: React.FC<
       }
       n--;
     } while (swapped);
-    if(swapped){
-    }
 
     setIsSorting(false);
     // return arr;
@@ -125,7 +123,7 @@ const SortingAlgorithmsVisualizer: React.FC<
   const selectionSort = async (arr: number[]): Promise<void> => {
     setIsSorting(true);
     let n = arr.length;
-    let swapped;
+    let swapped: boolean;
 
     for (let i = 0; i < n - 1; i++) {
       swapped = false;
@@ -133,7 +131,7 @@ const SortingAlgorithmsVisualizer: React.FC<
       for (let j = i + 1; j < n; j++) {
         setHighlightedBars([i, j]);
         if (arr[i] > arr[j]) {
-          let temp = arr[i];
+          const temp = arr[i];
           arr[i] = arr[j];
           arr[j] = temp;
           swapped = true;
@@ -179,9 +177,9 @@ const SortingAlgorithmsVisualizer: React.FC<
   const mergeSort = async (arr: number[]): Promise<number[]> => {
     setIsSorting(true);
     async function merge(left: number[], right: number[]) {
-      const result = [],
-        leftIdx = 0,
-        rightIdx = 0;
+      const result = [];
+      let leftIdx = 0;
+      let rightIdx = 0;
 
       while (leftIdx < left.length && rightIdx < right.length) {
         setHighlightedBars([leftIdx, rightIdx]);
