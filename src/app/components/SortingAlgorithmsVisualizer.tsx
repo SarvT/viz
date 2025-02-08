@@ -123,10 +123,10 @@ const SortingAlgorithmsVisualizer: React.FC<
   const selectionSort = async (arr: number[]): Promise<void> => {
     setIsSorting(true);
     let n = arr.length;
-    let swapped: boolean;
+    // let swapped: boolean;
 
     for (let i = 0; i < n - 1; i++) {
-      swapped = false;
+    //   swapped = false;
 
       for (let j = i + 1; j < n; j++) {
         setHighlightedBars([i, j]);
@@ -134,7 +134,7 @@ const SortingAlgorithmsVisualizer: React.FC<
           const temp = arr[i];
           arr[i] = arr[j];
           arr[j] = temp;
-          swapped = true;
+        //   swapped = true;
           setBars([...arr]);
           await new Promise((resolve) => setTimeout(resolve, animValue * 100));
         }
