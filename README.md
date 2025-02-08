@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Viz - Algorithm Visualizer
 
-## Getting Started
+<!--![Viz Banner](https://your-image-url.com/banner.png)  -->
 
-First, run the development server:
+## 🚀 Introduction
+**Viz** is a powerful algorithm visualizer that provides interactive and intuitive visualizations for sorting algorithms, pathfinding techniques, and binary tree operations. Built with **Next.js, TypeScript, ShadCN, and Tailwind CSS**, it offers a seamless and visually appealing experience for learners and enthusiasts.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+- **Sorting Visualizer** 📊  
+  Visualizes popular sorting algorithms such as:
+  - Bubble Sort
+  - Selection Sort
+  - Insertion Sort
+  - Merge Sort
+  - Quick Sort
+
+- **Pathfinding Visualizer** 🛤️  
+  Demonstrates various pathfinding algorithms with an interactive grid:
+  - Breadth-First Search (BFS)
+  - Depth-First Search (DFS)
+  - A* Algorithm
+  - Dijkstra's Algorithm
+
+- **Binary Tree Visualizer** 🌳  
+  Helps understand binary tree structures and operations:
+  - Tree construction
+<!--  - In-order, Pre-order, and Post-order traversal-->
+
+## 🛠️ Tech Stack
+- **Frontend:** Next.js (TypeScript)
+- **UI Components:** ShadCN, Tailwind CSS
+- **State Management:** React Hooks
+
+## 📦 Installation
+```sh
+# Clone the repository
+git clone https://github.com/sarvt/viz.git
+cd viz
+
+# Install dependencies
+pnpm install  # or npm install / yarn install
+
+# Run the development server
+pnpm dev  # or npm run dev / yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🖥️ Usage
+1. Open the app in your browser at `http://localhost:3000`
+2. Select an algorithm from the navigation menu
+3. Adjust settings and visualize the algorithm in action
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Deployment
+```sh
+# Build for production
+pnpm build  # or npm run build / yarn build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Start the production server
+pnpm start  # or npm run start / yarn start
+```
 
-## Learn More
+## 🎯 Contributing
+Contributions are welcome! Feel free to fork the repository, make changes, and submit a pull request.
 
-To learn more about Next.js, take a look at the following resources:
+## 📜 License
+This project is licensed under the **MIT License**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌟 Acknowledgments
+Special thanks to open-source contributors and resources that inspired this project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+🔗 **Follow for more updates:** [Your GitHub](https://github.com/sarvt) | [Twitter](https://x.com/sarvt_3)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
