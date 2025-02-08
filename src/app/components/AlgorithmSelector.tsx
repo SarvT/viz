@@ -17,6 +17,7 @@ const AlgorithmSelector: React.FC<AlgorithmSelectorProps> = ({ onSelect }) => {
         {/* <SelectItem value="tree">Tree</SelectItem> */}
         
         <SelectItem value="pathfinding">Pathfinding</SelectItem>
+        <SelectItem value="sorting">Sorting</SelectItem>
       </SelectContent>
     </Select>
   )
