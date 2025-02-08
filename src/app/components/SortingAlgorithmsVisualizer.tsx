@@ -78,7 +78,7 @@ const SortingAlgorithmsVisualizer: React.FC<
   const bubbleSort = async (arr: number[]): Promise<void> => {
     setIsSorting(true);
     let n = arr.length;
-    let swapped;
+    let swapped = false;
 
     do {
       swapped = false;
@@ -94,6 +94,8 @@ const SortingAlgorithmsVisualizer: React.FC<
       }
       n--;
     } while (swapped);
+    if(swapped){
+    }
 
     setIsSorting(false);
     // return arr;
@@ -102,7 +104,7 @@ const SortingAlgorithmsVisualizer: React.FC<
   const insertionSort = async (arr: number[]): Promise<void> => {
     setIsSorting(true);
     for (let i = 1; i < arr.length; i++) {
-      let key = arr[i];
+      const key = arr[i];
       let j = i - 1;
       setHighlightedBars([i]);
 
@@ -154,7 +156,7 @@ const SortingAlgorithmsVisualizer: React.FC<
   ): Promise<void> => {
     if (low >= high) return;
     setIsSorting(true);
-    let pivot = arr[high];
+    const pivot = arr[high];
     let i = low - 1;
 
     for (let j = low; j < high; j++) {
@@ -177,7 +179,7 @@ const SortingAlgorithmsVisualizer: React.FC<
   const mergeSort = async (arr: number[]): Promise<number[]> => {
     setIsSorting(true);
     async function merge(left: number[], right: number[]) {
-      let result = [],
+      const result = [],
         leftIdx = 0,
         rightIdx = 0;
 
