@@ -7,6 +7,7 @@ interface AlgorithmSelectorProps {
 
 const AlgorithmSelector: React.FC<AlgorithmSelectorProps> = ({ onSelect }) => {
   return (
+    <div className="m-4">
     <Select onValueChange={onSelect} defaultValue="binaryTree">
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select Algorithm" />
@@ -20,6 +21,7 @@ const AlgorithmSelector: React.FC<AlgorithmSelectorProps> = ({ onSelect }) => {
         <SelectItem value="sorting">Sorting</SelectItem>
       </SelectContent>
     </Select>
+    </div>
   )
 }
 

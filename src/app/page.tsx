@@ -18,7 +18,7 @@ export default function Home() {
 
   const handleAlgorithmChange = (algorithm: string) => {
     console.log(inputData);
-    
+
     setSelectedAlgorithm(algorithm);
     setInputData([]);
     // setMaze([]);
@@ -36,12 +36,14 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-4xl font-bold mb-8">Algorithm Visualizer</h1>
       <AlgorithmSelector onSelect={handleAlgorithmChange} />
-      <InputForm onSubmit={handleInputSubmit} algorithm={selectedAlgorithm} />
+      {!(selectedAlgorithm === "sorting" || selectedAlgorithm === "pathfinding") && (
+        <InputForm onSubmit={handleInputSubmit} algorithm={selectedAlgorithm} />
+      )}
       {selectedAlgorithm === "binaryTree" && (
         <BinaryTreeVisualizer data={inputData} />
       )}
       {selectedAlgorithm === "sorting" && (
-        <SortingAlgorithmsVisualizer data={inputData}/>
+        <SortingAlgorithmsVisualizer />
       )}
       {selectedAlgorithm === "pathfinding" && (
         <PathfindingVisualizer initialMaze={initialMaze} />

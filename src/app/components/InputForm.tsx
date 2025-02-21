@@ -46,9 +46,9 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, algorithm }) => {
       ) : (
         <Textarea
           placeholder="Enter maze (0 for path, 1 for wall, e.g.:
-00100
-01110
-00100"
+                      00100
+                      01110
+                      00100"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className="h-32"
