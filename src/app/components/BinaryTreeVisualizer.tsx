@@ -196,6 +196,10 @@ const BinaryTreeVisualizer: React.FC<BinaryTreeVisualizerProps> = ({
         className="border border-gray-300 mb-4"
       ></canvas>
       <Button onClick={handleSort}>Sort</Button>
+      <div className="example-arr bg-black text-white rounded m-2 p-6 shadow-lg">
+        You can use this array for example <br />
+        50, 30, 70, 20, 40, 60, 80, 10, 25, 35, 45, 55, 65, 75, 85
+      </div>
     </div>
   );
 };
