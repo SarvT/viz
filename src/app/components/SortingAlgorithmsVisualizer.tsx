@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { BlockPicker } from "react-color";
+import React, { useState } from "react";
+import { CirclePicker } from "react-color";
 
-interface SortingAlgorithmsVisualizerProps {
-  data: number[];
-}
+// interface SortingAlgorithmsVisualizerProps {
+//   data: number[];
+// }
 
-const SortingAlgorithmsVisualizer: React.FC<
-  SortingAlgorithmsVisualizerProps
-> = ({ data }) => {
-  const [bars, setBars] = useState<number[]>([]);
-  //   const [bars, setBars] = useState<number[]>([10, 10, 10, 10, 10, 10, 10, 10]);
+const SortingAlgorithmsVisualizer = ({}) => {
+  // const [bars, setBars] = useState<number[]>([]);
+  const [bars, setBars] = useState<number[]>([10, 10, 10, 10, 10, 10, 10, 10]);
   const [algorithm, setAlgorithm] = useState<string>("bubbleSort");
   const [highlightedBars, setHighlightedBars] = useState<number[]>([]);
   const [prevBars, setPrevBars] = useState<number[]>([]);
@@ -19,13 +17,14 @@ const SortingAlgorithmsVisualizer: React.FC<
   const [animValue, setAnimValue] = useState<number>(1);
   const [barLength, setBarLength] = useState<number>(1);
   const [progressPickerColor, setProgressPickerColor] =
-    useState<string>("#37d67a");
-  const [barPickerColor, setBarPickerColor] = useState<string>("#37d67a");
+    useState<string>("#2ccce4");
+  const [barPickerColor, setBarPickerColor] = useState<string>("#000000");
   //   const appName = "VizzyFy";
 
-  useEffect(() => {
-    setPrevBars(bars);
-  }, []);
+  // useEffect(() => {
+  //   setBars(bars);
+  //   setPrevBars(bars);
+  // }, []);
 
   const delay = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms * 100));
@@ -57,18 +56,18 @@ const SortingAlgorithmsVisualizer: React.FC<
     </div>
   );
 
-  useEffect(() => {
-    console.log(data);
+  // useEffect(() => {
+  //   console.log(data);
 
-    setBars(data);
-    setPrevBars(bars);
-  }, [data]);
+  //   setBars(data);
+  //   setPrevBars(bars);
+  // }, [data]);
 
-  //   const handleArrayInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-  // const inputArray = e.target.value.split(",").map(Number);
-  //     setBars(data);
-  //     setPrevBars(bars);
-  //   };
+  const handleArrayInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputArray = e.target.value.split(",").map(Number);
+    setBars(inputArray);
+    setPrevBars(inputArray);
+  };
 
   const handlleReset = () => {
     setBars([...prevBars]);
@@ -126,7 +125,7 @@ const SortingAlgorithmsVisualizer: React.FC<
     // let swapped: boolean;
 
     for (let i = 0; i < n - 1; i++) {
-    //   swapped = false;
+      //   swapped = false;
 
       for (let j = i + 1; j < n; j++) {
         setHighlightedBars([i, j]);
@@ -134,7 +133,7 @@ const SortingAlgorithmsVisualizer: React.FC<
           const temp = arr[i];
           arr[i] = arr[j];
           arr[j] = temp;
-        //   swapped = true;
+          //   swapped = true;
           setBars([...arr]);
           await new Promise((resolve) => setTimeout(resolve, animValue * 100));
         }
@@ -236,12 +235,12 @@ const SortingAlgorithmsVisualizer: React.FC<
       {/* <h1 className="text-2xl mb-4 bg-gray-900 text-white min-w-full text-center p-6 font-light cursor-pointer " >{appName}</h1> */}
 
       <div className="mb-4">
-        {/* <input
+        <input
           type="text"
           placeholder="Enter array, e.g., 5,3,8,6"
           className="border border-gray-300 p-2 mr-4"
           onChange={handleArrayInput}
-        /> */}
+        />
         <select
           className="border border-gray-300 p-2"
           onChange={(e) => setAlgorithm(e.target.value)}
@@ -307,28 +306,27 @@ const SortingAlgorithmsVisualizer: React.FC<
           className={`mt-4 mx-4 px-4 py-2 ${
             isSorting
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-red-500 hover:bg-red-600"
+              : "bg-black opacity-80 hover:bg-black hover:opacity-100"
           } text-white rounded`}
         >
           Reset
         </button>
       </div>
-      <div className="colorPickers flex">
-        <div className="text-center">
+      <div className="colorPickers flex ">
+        <div className="text-center m-4">
           Bar Indicators
-          <BlockPicker
-            className="m-4"
+          <CirclePicker
+            className="m-8"
             color={barPickerColor}
             onChange={(color) => {
               setBarPickerColor(color.hex);
-              console.log(barPickerColor);
             }}
           />
         </div>
-        <div className="text-clip">
+        <div className=" m-4 text-center">
           <h3>Progress Indicators</h3>
-          <BlockPicker
-            className="m-4"
+          <CirclePicker
+            className="m-8"
             color={progressPickerColor}
             onChange={(color) => {
               setProgressPickerColor(color.hex);
@@ -336,7 +334,7 @@ const SortingAlgorithmsVisualizer: React.FC<
           />
         </div>
       </div>
-      <div className="example-arr bg-green-600 rounded m-2 p-2 text-white shadow-lg">
+      <div className="example-arr bg-black rounded m-2 p-2 text-white shadow-lg">
         You can use this array for example <br />
         98, 85, 47, 39, 42, 93, 32, 60, 24, 82, 80, 92, 12, 11, 99, 45, 65, 30,
         75, 44
